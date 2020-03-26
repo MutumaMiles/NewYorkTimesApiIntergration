@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="article"
+            type="com.goodwill.apainterviewapp.models.Article" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/article_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/background_rounded"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/default_margin"
+            app:articleImage="@{article.captionUrl}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{article.title}"
+            android:layout_toEndOf="@id/article_image"
+            android:layout_marginStart="@dimen/default_margin"
+            android:id="@+id/article_title"
+            android:layout_marginTop="@dimen/default_margin"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            style="@style/roboto_font_normal_type_style"
+            android:maxLines="2"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/article_date"
+            android:layout_below="@id/article_title"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="@dimen/medium_margin">
+            <ImageView
+                android:layout_width="@dimen/medium_margin"
+                android:layout_height="@dimen/medium_margin"
+                android:src="@drawable/ic_action_calendar"
+                android:paddingEnd="5dp"
+                android:layout_gravity="center_vertical"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{article.publishedDate}"
+                style="@style/roboto_font_normal_type_style"
+                android:paddingStart="5dp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_title"
+            android:text="@{article.author}"
+            android:layout_toEndOf="@id/article_image"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            style="@style/roboto_font_normal_type_style"
+            android:layout_toStartOf="@id/article_date"
+            />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_action_right"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/default_margin"
+            />
+    </RelativeLayout>
+</layout>
